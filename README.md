@@ -2,7 +2,7 @@
 
 [![npm shield](https://img.shields.io/npm/v/@fern-api/corrily)](https://www.npmjs.com/package/@fern-api/corrily)
 
-The {Company} Node.js library provides access to the Corrily API from JavaScript/TypeScript.
+The Corrily Node.js library provides access to the Corrily API from JavaScript/TypeScript.
 
 ## Documentation
 
