@@ -7,8 +7,8 @@ import { CorrilyApi } from "@fern-api/corrily";
 import * as core from "../../../core";
 
 export const PriceFeatures: core.schemas.Schema<serializers.PriceFeatures.Raw, CorrilyApi.PriceFeatures> =
-  core.schemas.record(core.schemas.unknown(), core.schemas.unknown());
+  core.schemas.record(core.schemas.string(), core.schemas.string());
 
 export declare namespace PriceFeatures {
-  type Raw = Record<unknown, unknown>;
+  type Raw = Record<string, string>;
 }

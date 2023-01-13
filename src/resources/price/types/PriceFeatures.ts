@@ -8,4 +8,4 @@
  * To Corrily these are simply labels for training its AI models. For example, suppose that you provide a platform
  *
  */
-export type PriceFeatures = Record<unknown, unknown>;
+export type PriceFeatures = Record<string, string>;

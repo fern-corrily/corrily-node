@@ -7,7 +7,7 @@ import { CorrilyApi } from "@fern-api/corrily";
 export interface IdentifyCallRequest {
   userId: CorrilyApi.UserId;
   ip?: string;
-  features?: Record<unknown, unknown>;
+  features?: unknown;
   appleOriginalTransactionId?: string;
   googlePurchaseToken?: string;
 }

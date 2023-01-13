@@ -13,7 +13,7 @@ export const Request: core.schemas.Schema<serializers.user.identify.Request.Raw,
       core.schemas.lazy(async () => (await import("../..")).UserId)
     ),
     ip: core.schemas.string().optional(),
-    features: core.schemas.record(core.schemas.unknown(), core.schemas.unknown()).optional(),
+    features: core.schemas.unknown().optional(),
     appleOriginalTransactionId: core.schemas.property(
       "apple_original_transaction_id",
       core.schemas.string().optional()
@@ -25,7 +25,7 @@ export declare namespace Request {
   interface Raw {
     user_id: serializers.UserId.Raw;
     ip?: string | null;
-    features?: Record<unknown, unknown> | null;
+    features?: unknown | null;
     apple_original_transaction_id?: string | null;
     google_purchase_token?: string | null;
   }
