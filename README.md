@@ -10,12 +10,29 @@ API documentation is available [here](https://docs.corrily.com/api-reference/cal
 
 ## Usage
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](TODO)
+[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/edit/typescript-example-using-sdk-built-with-fern-zxpd4j?file=app.ts&view=editor)
 
 ```typescript
-import { TODO } from "TODO";
+import { CorrilyApiClient, CorrilyApiEnvironment } from '@fern-api/corrily';
 
-const TODO
+const client = new CorrilyApiClient({
+  environment: CorrilyApiEnvironment.Production,
+  token: 'MY_TOKEN',
+});
+
+const response = await client.price.calculate({
+  userId: '193.37.32.232',
+  products: ['product456'],
+  ip: '193.37.32.232',
+  getIpFromRequest: true,
+  country: 'US',
+  integrations: ['stripe'],
+  currency: 'USD',
+  override: true,
+  runExperiment: true,
+});
+
+console.log('Received response from Corrily!', response);
 ```
 
 ## Beta status
