@@ -8,7 +8,7 @@ export interface CreateSubscriptionRequest {
   amount: number;
   country?: CorrilyApi.Country;
   created: number;
-  currency: string;
+  currency: CorrilyApi.Currency;
   origin: CorrilyApi.Integration;
   originId: string;
   product: string;

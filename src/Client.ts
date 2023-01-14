@@ -4,7 +4,9 @@
 
 import * as environments from "./environments";
 import * as core from "./core";
+import { Client as ChargeClient } from "./resources/charge/client/Client";
 import { Client as PriceClient } from "./resources/price/client/Client";
+import { Client as ProductClient } from "./resources/product/client/Client";
 import { Client as SubscriptionClient } from "./resources/subscription/client/Client";
 import { Client as UserClient } from "./resources/user/client/Client";
 
@@ -18,10 +20,22 @@ export declare namespace CorrilyApiClient {
 export class CorrilyApiClient {
   constructor(private readonly options: CorrilyApiClient.Options) {}
 
+  #charge: ChargeClient | undefined;
+
+  public get charge(): ChargeClient {
+    return (this.#charge ??= new ChargeClient(this.options));
+  }
+
   #price: PriceClient | undefined;
 
   public get price(): PriceClient {
     return (this.#price ??= new PriceClient(this.options));
+  }
+
+  #product: ProductClient | undefined;
+
+  public get product(): ProductClient {
+    return (this.#product ??= new ProductClient(this.options));
   }
 
   #subscription: SubscriptionClient | undefined;

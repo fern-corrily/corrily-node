@@ -13,7 +13,7 @@ export const Request: core.schemas.Schema<
   amount: core.schemas.number(),
   country: core.schemas.lazy(async () => (await import("../..")).Country).optional(),
   created: core.schemas.number(),
-  currency: core.schemas.string(),
+  currency: core.schemas.lazy(async () => (await import("../..")).Currency),
   origin: core.schemas.lazy(async () => (await import("../..")).Integration),
   originId: core.schemas.property("origin_id", core.schemas.string()),
   product: core.schemas.string(),
@@ -33,7 +33,7 @@ export declare namespace Request {
     amount: number;
     country?: serializers.Country.Raw | null;
     created: number;
-    currency: string;
+    currency: serializers.Currency.Raw;
     origin: serializers.Integration.Raw;
     origin_id: string;
     product: string;

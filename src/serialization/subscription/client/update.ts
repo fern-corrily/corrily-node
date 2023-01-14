@@ -14,7 +14,7 @@ export const Request: core.schemas.Schema<
   cancelAt: core.schemas.property("cancel_at", core.schemas.number().optional()),
   canceledAt: core.schemas.property("canceled_at", core.schemas.number().optional()),
   created: core.schemas.number().optional(),
-  currency: core.schemas.string().optional(),
+  currency: core.schemas.lazy(async () => (await import("../..")).Currency).optional(),
   status: core.schemas.lazy(async () => (await import("../..")).SubscriptionStatus).optional(),
   trialStart: core.schemas.property("trial_start", core.schemas.number().optional()),
   trialEnd: core.schemas.property("trial_end", core.schemas.number().optional()),
@@ -26,7 +26,7 @@ export declare namespace Request {
     cancel_at?: number | null;
     canceled_at?: number | null;
     created?: number | null;
-    currency?: string | null;
+    currency?: serializers.Currency.Raw | null;
     status?: serializers.SubscriptionStatus.Raw | null;
     trial_start?: number | null;
     trial_end?: number | null;

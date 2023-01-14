@@ -9,7 +9,7 @@ export interface UpdateSubscriptionRequest {
   cancelAt?: number;
   canceledAt?: number;
   created?: number;
-  currency?: string;
+  currency?: CorrilyApi.Currency;
   status?: CorrilyApi.SubscriptionStatus;
   trialStart?: number;
   trialEnd?: number;

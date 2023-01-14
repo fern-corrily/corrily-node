@@ -126,4 +126,34 @@ export class Client {
       error: CorrilyApi.subscription.update.Error._unknown(_response.error),
     };
   }
+
+  public async delete(
+    origin: CorrilyApi.Integration,
+    originId: string,
+    userId: string
+  ): Promise<CorrilyApi.subscription.delete.Response> {
+    const _response = await core.fetcher({
+      url: urlJoin(
+        this.options.environment ?? environments.CorrilyApiEnvironment.Production,
+        `/subscriptions/${userId}/${origin}/${originId}`
+      ),
+      method: "DELETE",
+      headers: {
+        Authorization: core.BearerToken.toAuthorizationHeader(await core.Supplier.get(this.options.token)),
+      },
+    });
+    if (_response.ok) {
+      return {
+        ok: true,
+        body: await serializers.subscription.delete.Response.parse(
+          _response.body as serializers.subscription.delete.Response.Raw
+        ),
+      };
+    }
+
+    return {
+      ok: false,
+      error: CorrilyApi.subscription.delete.Error._unknown(_response.error),
+    };
+  }
 }
