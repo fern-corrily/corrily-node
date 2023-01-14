@@ -127,7 +127,7 @@ export class Client {
         this.options.environment ?? environments.CorrilyApiEnvironment.Production,
         `/charges/${userId}/${origin}/${originId}`
       ),
-      method: "POST",
+      method: "DELETE",
       headers: {
         Authorization: core.BearerToken.toAuthorizationHeader(await core.Supplier.get(this.options.token)),
       },
