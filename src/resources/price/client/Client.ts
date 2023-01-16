@@ -18,7 +18,7 @@ export declare namespace Client {
 export class Client {
   constructor(private readonly options: Client.Options) {}
 
-  public async calculate(request?: CorrilyApi.CalculatePriceRequest): Promise<CorrilyApi.price.calculate.Response> {
+  public async calculate(request: CorrilyApi.CalculatePriceRequest): Promise<CorrilyApi.price.calculate.Response> {
     const _response = await core.fetcher({
       url: urlJoin(this.options.environment ?? environments.CorrilyApiEnvironment.Production, "/prices/"),
       method: "POST",
@@ -26,18 +26,18 @@ export class Client {
         Authorization: core.BearerToken.toAuthorizationHeader(await core.Supplier.get(this.options.token)),
       },
       body: await serializers.price.calculate.Request.json({
-        userId: request?.userId,
-        products: request?.products,
-        ip: request?.ip,
-        getIpFromRequest: request?.getIpFromRequest,
-        country: request?.country,
-        features: request?.features,
-        integrations: request?.integrations,
-        currency: request?.currency,
-        override: request?.override,
-        overrideCurrency: request?.overrideCurrency,
-        runExperiment: request?.runExperiment,
-        coupons: request?.coupons,
+        userId: request.userId,
+        products: request.products,
+        ip: request.ip,
+        getIpFromRequest: request.getIpFromRequest,
+        country: request.country,
+        features: request.features,
+        integrations: request.integrations,
+        currency: request.currency,
+        override: request.override,
+        overrideCurrency: request.overrideCurrency,
+        runExperiment: request.runExperiment,
+        coupons: request.coupons,
       }),
     });
     if (_response.ok) {

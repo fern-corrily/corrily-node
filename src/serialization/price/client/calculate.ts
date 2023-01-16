@@ -9,7 +9,7 @@ import * as core from "../../../core";
 export const Request: core.schemas.Schema<serializers.price.calculate.Request.Raw, CorrilyApi.CalculatePriceRequest> =
   core.schemas.object({
     userId: core.schemas.property("user_id", core.schemas.lazy(async () => (await import("../..")).UserId).optional()),
-    products: core.schemas.list(core.schemas.lazy(async () => (await import("../..")).ProductId)).optional(),
+    products: core.schemas.list(core.schemas.lazy(async () => (await import("../..")).ProductId)),
     ip: core.schemas.string().optional(),
     getIpFromRequest: core.schemas.property("get_ip_from_request", core.schemas.boolean().optional()),
     country: core.schemas.lazy(async () => (await import("../..")).Country).optional(),
@@ -25,7 +25,7 @@ export const Request: core.schemas.Schema<serializers.price.calculate.Request.Ra
 export declare namespace Request {
   interface Raw {
     user_id?: serializers.UserId.Raw | null;
-    products?: serializers.ProductId.Raw[] | null;
+    products: serializers.ProductId.Raw[];
     ip?: string | null;
     get_ip_from_request?: boolean | null;
     country?: serializers.Country.Raw | null;

@@ -6,7 +6,7 @@ import { CorrilyApi } from "@fern-api/corrily";
 
 export interface CalculatePriceRequest {
   userId?: CorrilyApi.UserId;
-  products?: CorrilyApi.ProductId[];
+  products: CorrilyApi.ProductId[];
   ip?: string;
   getIpFromRequest?: boolean;
   country?: CorrilyApi.Country;
