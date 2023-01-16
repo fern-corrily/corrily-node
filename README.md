@@ -10,7 +10,7 @@ API documentation is available [here](https://docs.corrily.com/api-reference/cal
 
 ## Usage
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/edit/typescript-example-using-sdk-built-with-fern-zxpd4j?file=app.ts&view=editor)
+[![Try it out](https://fern-image-hosting.s3.amazonaws.com/try-it-out-blue.svg)](https://stackblitz.com/edit/typescript-example-using-sdk-built-with-fern-zxpd4j?file=app.ts&view=editor)
 
 ```typescript
 import { CorrilyApiClient, CorrilyApiEnvironment } from '@fern-api/corrily';
