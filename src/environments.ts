@@ -3,7 +3,7 @@
  */
 
 export const CorrilyApiEnvironment = {
-  Production: "https://default.corrily.com/v1",
+    Production: "https://default.corrily.com/v1",
 } as const;
 
 export type CorrilyApiEnvironment = typeof CorrilyApiEnvironment.Production;

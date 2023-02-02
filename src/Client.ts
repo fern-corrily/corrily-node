@@ -4,49 +4,49 @@
 
 import * as environments from "./environments";
 import * as core from "./core";
-import { Client as ChargeClient } from "./resources/charge/client/Client";
-import { Client as PriceClient } from "./resources/price/client/Client";
-import { Client as ProductClient } from "./resources/product/client/Client";
-import { Client as SubscriptionClient } from "./resources/subscription/client/Client";
-import { Client as UserClient } from "./resources/user/client/Client";
+import { Client as ChargeClient } from "./api/resources/charge/client/Client";
+import { Client as PriceClient } from "./api/resources/price/client/Client";
+import { Client as ProductClient } from "./api/resources/product/client/Client";
+import { Client as SubscriptionClient } from "./api/resources/subscription/client/Client";
+import { Client as UserClient } from "./api/resources/user/client/Client";
 
 export declare namespace CorrilyApiClient {
-  interface Options {
-    environment?: environments.CorrilyApiEnvironment | string;
-    token?: core.Supplier<core.BearerToken>;
-  }
+    interface Options {
+        environment?: environments.CorrilyApiEnvironment | string;
+        token?: core.Supplier<core.BearerToken>;
+    }
 }
 
 export class CorrilyApiClient {
-  constructor(private readonly options: CorrilyApiClient.Options) {}
+    constructor(private readonly options: CorrilyApiClient.Options) {}
 
-  #charge: ChargeClient | undefined;
+    #charge: ChargeClient | undefined;
 
-  public get charge(): ChargeClient {
-    return (this.#charge ??= new ChargeClient(this.options));
-  }
+    public get charge(): ChargeClient {
+        return (this.#charge ??= new ChargeClient(this.options));
+    }
 
-  #price: PriceClient | undefined;
+    #price: PriceClient | undefined;
 
-  public get price(): PriceClient {
-    return (this.#price ??= new PriceClient(this.options));
-  }
+    public get price(): PriceClient {
+        return (this.#price ??= new PriceClient(this.options));
+    }
 
-  #product: ProductClient | undefined;
+    #product: ProductClient | undefined;
 
-  public get product(): ProductClient {
-    return (this.#product ??= new ProductClient(this.options));
-  }
+    public get product(): ProductClient {
+        return (this.#product ??= new ProductClient(this.options));
+    }
 
-  #subscription: SubscriptionClient | undefined;
+    #subscription: SubscriptionClient | undefined;
 
-  public get subscription(): SubscriptionClient {
-    return (this.#subscription ??= new SubscriptionClient(this.options));
-  }
+    public get subscription(): SubscriptionClient {
+        return (this.#subscription ??= new SubscriptionClient(this.options));
+    }
 
-  #user: UserClient | undefined;
+    #user: UserClient | undefined;
 
-  public get user(): UserClient {
-    return (this.#user ??= new UserClient(this.options));
-  }
+    public get user(): UserClient {
+        return (this.#user ??= new UserClient(this.options));
+    }
 }
